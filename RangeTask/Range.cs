@@ -1,32 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace RangeTask;
 
-namespace RangeTask
+internal class Range
 {
-    internal class Range
+    public double From { get; set; }
+
+    public double To { get; set; }
+
+    public Range(double from, double to)
     {
-        public double From { get; set; }
+        From = from;
+        To = to;
+    }
 
-        public double To { get; set; }
+    public double GetLength()
+    {
+        return To - From;
+    }
 
-        public Range(double from, double to) 
+    public bool IsInside(double number)
+    {
+        return number >= From && number <= To;
+    }
+
+    public Range? GetIntersection(Range range)
+    {
+        if (To <= range.From || From >= range.To)
         {
-            From = from;
-            To = to;   
+            return null;
         }
 
-        public double GetLength()
+        return new Range(Math.Max(From, range.From), Math.Min(To, range.To));
+    }
+
+    public Range[] GetUnion(Range range)
+    {
+        if (To < range.From || From > range.To)
         {
-            return To - From;
+            return [new Range(From, To), new Range(range.From, range.To)];
         }
 
-        public bool IsInside(double number)
+        return [new Range(Math.Min(From, range.From), Math.Max(To, range.To))];
+    }
+
+    public Range[]? GetComplement(Range range)
+    {
+        // Отрезки не пересекаются
+        if (To <= range.From || From >= range.To)
         {
-            return number >= From && number <= To;
+            return [new Range(From, To)];
         }
+
+        // Второй отрезок полностью содержит первый или равен ему
+        if (From >= range.From && To <= range.To)
+        {
+            return null; //пустое множество
+        }
+
+        // Второй отрезок полностью входит в первый
+        if (From < range.From && To > range.To)
+        {
+            return [new Range(From, range.From), new Range(range.To, To)];
+        }
+
+        // Пересекается правая часть отрезка
+        if (From < range.From)
+        {
+            return [new Range(From, range.From)];
+        }
+
+        return [new Range(range.To, To)];
     }
 }
