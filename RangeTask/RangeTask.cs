@@ -45,6 +45,7 @@ internal class RangeTask
 
         Range range1 = new Range(5, 20);
         Range range2 = new Range(10, 15);
+
         int i = 1;
         bool firstStart = true;
 
@@ -75,6 +76,7 @@ internal class RangeTask
             PrintIntervals(range1.GetComplement(range2));
 
             i++;
+
             if (firstStart)
             {
                 range1.To = 8;
@@ -85,7 +87,6 @@ internal class RangeTask
                 range1.From += 2;
                 range1.To += 2;
             }
-
         }
     }
 }
