@@ -75,6 +75,8 @@ internal class RangeTask
             Console.WriteLine("Проверка операции РАЗНОСТИ");
             PrintIntervals(range1.GetComplement(range2));
 
+            i++;
+
             if (firstStart)
             {
                 range1.To = 8;
