@@ -1,6 +1,6 @@
 ﻿namespace RangeTask;
 
-internal class Range
+public class Range
 {
     public double From { get; set; }
 
@@ -42,7 +42,7 @@ internal class Range
         return [new Range(Math.Min(From, range.From), Math.Max(To, range.To))];
     }
 
-    public Range[]? GetComplement(Range range)
+    public Range[]? GetDifference(Range range)
     {
         // Отрезки не пересекаются
         if (To <= range.From || From >= range.To)
@@ -53,7 +53,7 @@ internal class Range
         // Второй отрезок полностью содержит первый или равен ему
         if (From >= range.From && To <= range.To)
         {
-            return null; //пустое множество
+            return []; // пустое множество
         }
 
         // Второй отрезок полностью входит в первый

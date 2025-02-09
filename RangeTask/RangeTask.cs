@@ -2,34 +2,39 @@
 
 internal class RangeTask
 {
-    public static void PrintIntervals(Range[]? range)
+    public static void PrintRanges(Range[]? ranges)
     {
-        if (range is null)
+        if (ranges!.Length == 0)
         {
             Console.WriteLine("Пустое множество");
             Console.WriteLine();
             return;
         }
 
-        for (int i = 0; i < range.Length; i++)
+        for (int i = 0; i < ranges.Length; i++)
         {
-            Console.WriteLine($"Кусок {1 + i} - [{range[i].From}, {range[i].To}]");
+            Console.WriteLine($"Кусок {1 + i} - [{ranges[i].From}, {ranges[i].To}]");
             Console.WriteLine();
         }
     }
     static void Main()
     {
-        //Первая часть задачи Range
+        // Первая часть задачи Range
+
         //Console.WriteLine("Введите начальное число диапазона:");
+
         //double startNumber = Convert.ToDouble(Console.ReadLine());
 
         //Console.WriteLine("Введите конечное число диапазона:");
+
         //double endNumber = Convert.ToDouble(Console.ReadLine());
 
         //Range range = new(startNumber, endNumber);
+
         //Console.WriteLine($"Длина введенного диапазона = {range.GetLength()}");
 
         //Console.WriteLine("Введите число для проверки принадлежности диапазону:");
+
         //double testNumber = Convert.ToDouble(Console.ReadLine());
 
         //if (range.IsInside(testNumber))
@@ -47,7 +52,7 @@ internal class RangeTask
         Range range2 = new Range(10, 15);
 
         int i = 1;
-        bool firstStart = true;
+        bool isFirstStart = true;
 
         while (range1.From - 2 <= range2.To)
         {
@@ -63,24 +68,24 @@ internal class RangeTask
             }
             else
             {
-                Range? range3 = range1.GetIntersection(range2);
-                Console.WriteLine($"Пересечение - [{range3!.From}, {range3.To}]");
+                Range? intersectionRange = range1.GetIntersection(range2);
+                Console.WriteLine($"Пересечение - [{intersectionRange!.From}, {intersectionRange.To}]");
             }
 
             Console.WriteLine();
 
             Console.WriteLine("Проверка операции ОБЪЕДИНЕНИЯ");
-            PrintIntervals(range1.GetUnion(range2));
+            PrintRanges(range1.GetUnion(range2));
 
             Console.WriteLine("Проверка операции РАЗНОСТИ");
-            PrintIntervals(range1.GetComplement(range2));
+            PrintRanges(range1.GetDifference(range2));
 
             i++;
 
-            if (firstStart)
+            if (isFirstStart)
             {
                 range1.To = 8;
-                firstStart = false;
+                isFirstStart = false;
             }
             else
             {
