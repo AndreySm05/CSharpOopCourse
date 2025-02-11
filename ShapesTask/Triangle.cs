@@ -37,7 +37,7 @@ internal class Triangle : IShape
 
     public double GetHeight()
     {
-        return Math.Min(Math.Min(Y1, Y2), Y3) - Math.Min(Math.Min(Y1, Y2), Y3);
+        return Math.Max(Math.Max(Y1, Y2), Y3) - Math.Min(Math.Min(Y1, Y2), Y3);
     }
 
     public double GetPerimeter()

@@ -1,6 +1,6 @@
 ﻿namespace ShapesTask;
 
-internal class Rectangle
+internal class Rectangle : IShape
 {
     public double Side1Lenght { get; set; }
 

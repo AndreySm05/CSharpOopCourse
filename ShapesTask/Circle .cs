@@ -11,12 +11,12 @@ internal class Circle : IShape
 
     public double GetWidth()
     {
-        return 2*Radius;
+        return 2 * Radius;
     }
 
     public double GetHeight()
     {
-        return 2*Radius;
+        return 2 * Radius;
     }
 
     public double GetArea()
