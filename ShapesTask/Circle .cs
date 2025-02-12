@@ -1,4 +1,6 @@
-﻿namespace ShapesTask;
+﻿using System.Security.Cryptography;
+
+namespace ShapesTask;
 
 internal class Circle : IShape
 {
@@ -7,6 +9,11 @@ internal class Circle : IShape
     public Circle(double radius)
     {
         Radius = radius;
+    }
+
+    public override string ToString()
+    {
+        return ($"Радиус окружности = {Radius}");
     }
 
     public double GetWidth()

@@ -1,4 +1,6 @@
-﻿namespace ShapesTask;
+﻿using System.Security.Cryptography;
+
+namespace ShapesTask;
 
 internal class Square : IShape
 {
@@ -7,6 +9,11 @@ internal class Square : IShape
     public Square(double lenght)
     {
         Length = lenght;
+    }
+
+    public override string ToString()
+    {
+        return ($"Сторона квадрата = {Length}");
     }
 
     public double GetWidth()

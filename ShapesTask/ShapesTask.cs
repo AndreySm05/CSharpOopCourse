@@ -27,27 +27,23 @@ internal class ShapesTask
         ];
 
         // Проверка сортировки по площади
-        IShape shape1 = GetMaxArea(shapes);
+        IShape maxAreaShape = GetMaxArea(shapes);
 
-        string? shape1Name = shape1.ToString().Substring(shape1.ToString().IndexOf(".") + 1);
-
-        Console.WriteLine($"Вид фигуры = {shape1Name}");
-        Console.WriteLine($"Площадь = {shape1.GetArea()}");
-        Console.WriteLine($"Периметр = {shape1.GetPerimeter()}");
-        Console.WriteLine($"Ширина = {shape1.GetWidth()}");
-        Console.WriteLine($"Высота = {shape1.GetHeight()}");
+        Console.WriteLine($"Данные фигуры: {maxAreaShape.ToString()}");
+        Console.WriteLine($"Площадь = {maxAreaShape.GetArea()}");
+        Console.WriteLine($"Периметр = {maxAreaShape.GetPerimeter()}");
+        Console.WriteLine($"Ширина = {maxAreaShape.GetWidth()}");
+        Console.WriteLine($"Высота = {maxAreaShape.GetHeight()}");
 
         Console.WriteLine();
 
         // Проверка сортировки по периметру
-        IShape shape2 = GetPreMaxPerimeter(shapes);
+        IShape preMaxPerimeterShape = GetPreMaxPerimeter(shapes);
 
-        string? shape2Name = shape2.ToString().Substring(shape2.ToString().IndexOf(".") + 1);
-
-        Console.WriteLine($"Вид фигуры = {shape2Name}");
-        Console.WriteLine($"Площадь = {shape2.GetArea()}");
-        Console.WriteLine($"Периметр = {shape2.GetPerimeter()}");
-        Console.WriteLine($"Ширина = {shape2.GetWidth()}");
-        Console.WriteLine($"Высота = {shape2.GetHeight()}");
+        Console.WriteLine($"Данные фигуры: {preMaxPerimeterShape.ToString()}");
+        Console.WriteLine($"Площадь = {preMaxPerimeterShape.GetArea()}");
+        Console.WriteLine($"Периметр = {preMaxPerimeterShape.GetPerimeter()}");
+        Console.WriteLine($"Ширина = {preMaxPerimeterShape.GetWidth()}");
+        Console.WriteLine($"Высота = {preMaxPerimeterShape.GetHeight()}");
     }
 }

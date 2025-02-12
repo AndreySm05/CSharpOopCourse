@@ -12,6 +12,12 @@ internal class Rectangle : IShape
         Side2Lenght = side2Lenght;
     }
 
+    public override string ToString()
+    {
+        return ($"Первая сторона прямоугольника = {Side1Lenght} {Environment.NewLine}" +
+            $"Вторая сторона прямоугольника = {Side2Lenght}");
+    }
+
     public double GetWidth()
     {
         return Math.Max(Side1Lenght, Side2Lenght);

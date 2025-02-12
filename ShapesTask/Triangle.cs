@@ -21,6 +21,11 @@ internal class Triangle : IShape
         Y3 = y3;
     }
 
+    public override string ToString()
+    {
+        return ($"Координаты сторон треугольника ({X1},{Y1}), ({X2},{Y2}), ({X3},{Y3})");
+    }
+
     public double[] GetSides()
     {
         double side1Length = Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2));
