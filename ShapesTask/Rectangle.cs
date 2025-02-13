@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ShapesTask;
+﻿namespace ShapesTask;
 
 internal class Rectangle : IShape
 {
@@ -36,6 +34,7 @@ internal class Rectangle : IShape
 
         return Side1Length == rectangle.Side1Length && Side2Length == rectangle.Side2Length;
     }
+
     public double GetWidth()
     {
         return Math.Max(Side1Length, Side2Length);

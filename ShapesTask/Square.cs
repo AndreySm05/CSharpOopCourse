@@ -1,6 +1,4 @@
-﻿using System.Security.Cryptography;
-
-namespace ShapesTask;
+﻿namespace ShapesTask;
 
 internal class Square : IShape
 {
