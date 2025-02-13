@@ -26,6 +26,25 @@ internal class Triangle : IShape
         return ($"Координаты сторон треугольника ({X1},{Y1}), ({X2},{Y2}), ({X3},{Y3})");
     }
 
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(obj, this))
+        {
+            return true;
+        }
+
+        if (ReferenceEquals(obj, null) || obj.GetType() != GetType())
+        {
+            return false;
+        }
+
+        Triangle triangle = (Triangle)obj;
+
+        return X1 == triangle.X1 && Y1 == triangle.Y2 &&
+               X2 == triangle.X2 && Y2 == triangle.Y2 &&
+               X3 == triangle.X3 && Y3 == triangle.Y3;
+    }
+
     public double[] GetSides()
     {
         double side1Length = Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2));

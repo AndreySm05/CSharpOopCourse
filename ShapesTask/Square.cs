@@ -16,6 +16,23 @@ internal class Square : IShape
         return ($"Сторона квадрата = {Length}");
     }
 
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(obj, this))
+        {
+            return true;
+        }
+
+        if (ReferenceEquals(obj, null) || obj.GetType() != GetType())
+        {
+            return false;
+        }
+
+        Square square = (Square)obj;
+
+        return Length == square.Length;
+    }
+
     public double GetWidth()
     {
         return Length;

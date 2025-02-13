@@ -16,6 +16,23 @@ internal class Circle : IShape
         return ($"Радиус окружности = {Radius}");
     }
 
+    public override bool Equals(object? obj)
+    {
+        if (ReferenceEquals(obj, this))
+        {
+            return true;
+        }
+
+        if (ReferenceEquals(obj, null) || obj.GetType() != GetType())
+        {
+            return false;
+        }
+
+        Circle circle = (Circle)obj;
+
+        return Radius == circle.Radius;
+    }
+
     public double GetWidth()
     {
         return 2 * Radius;
