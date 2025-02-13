@@ -31,6 +31,16 @@ internal class Circle : IShape
         return Radius == circle.Radius;
     }
 
+    public override int GetHashCode()
+    {
+        int prime = 23;
+        int hash = 1;
+
+        hash = prime * hash + Radius.GetHashCode();
+
+        return hash;
+    }
+
     public double GetWidth()
     {
         return 2 * Radius;

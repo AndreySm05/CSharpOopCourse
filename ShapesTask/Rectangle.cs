@@ -35,6 +35,17 @@ internal class Rectangle : IShape
         return Side1Length == rectangle.Side1Length && Side2Length == rectangle.Side2Length;
     }
 
+    public override int GetHashCode()
+    {
+        int prime = 13;
+        int hash = 1;
+
+        hash = prime * hash + Side1Length.GetHashCode();
+        hash = prime * hash + Side2Length.GetHashCode();
+
+        return hash;
+    }
+
     public double GetWidth()
     {
         return Math.Max(Side1Length, Side2Length);

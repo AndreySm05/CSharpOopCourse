@@ -45,6 +45,21 @@ internal class Triangle : IShape
                X3 == triangle.X3 && Y3 == triangle.Y3;
     }
 
+    public override int GetHashCode()
+    {
+        int prime = 17;
+        int hash = 1;
+
+        hash = prime * hash + X1.GetHashCode();
+        hash = prime * hash + Y1.GetHashCode();
+        hash = prime * hash + X2.GetHashCode();
+        hash = prime * hash + Y2.GetHashCode();
+        hash = prime * hash + X3.GetHashCode();
+        hash = prime * hash + Y3.GetHashCode();
+
+        return hash;
+    }
+
     public double[] GetSides()
     {
         double side1Length = Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2));

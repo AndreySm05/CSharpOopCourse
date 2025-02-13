@@ -31,6 +31,16 @@ internal class Square : IShape
         return Length == square.Length;
     }
 
+    public override int GetHashCode()
+    {
+        int prime = 19;
+        int hash = 1;
+
+        hash = prime * hash + Length.GetHashCode();
+
+        return hash;
+    }
+
     public double GetWidth()
     {
         return Length;
