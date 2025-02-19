@@ -1,6 +1,6 @@
 ﻿namespace ShapesTask;
 
-internal class Circle : IShape
+public class Circle : IShape
 {
     public double Radius { get; set; }
 

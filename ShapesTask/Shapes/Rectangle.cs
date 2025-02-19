@@ -1,6 +1,6 @@
 ﻿namespace ShapesTask;
 
-internal class Rectangle : IShape
+public class Rectangle : IShape
 {
     public double Width { get; set; }
 

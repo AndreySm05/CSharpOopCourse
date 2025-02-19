@@ -1,6 +1,6 @@
 ﻿namespace ShapesTask;
 
-internal class Triangle : IShape
+public class Triangle : IShape
 {
     public double X1 { get; set; }
     public double Y1 { get; set; }

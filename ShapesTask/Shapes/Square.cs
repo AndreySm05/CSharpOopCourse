@@ -1,6 +1,6 @@
 ﻿namespace ShapesTask;
 
-internal class Square : IShape
+public class Square : IShape
 {
     public double Length { get; set; }
 
