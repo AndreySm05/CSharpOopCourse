@@ -2,18 +2,18 @@
 
 internal class ShapesTask
 {
-    public static IShape GetMaxArea(IShape[] shapes)
+    public static IShape GetMaxAreaShape(IShape[] shapes)
     {
-        Array.Sort(shapes, new AreaComparer());
+        Array.Sort(shapes, new ShapeAreaComparer());
 
-        return shapes[shapes.Length - 1];
+        return shapes[^1];
     }
 
-    public static IShape GetPreMaxPerimeter(IShape[] shapes)
+    public static IShape GetPreMaxPerimeterShape(IShape[] shapes)
     {
-        Array.Sort(shapes, new PerimeterComparer());
+        Array.Sort(shapes, new ShapePerimeterComparer());
 
-        return shapes[shapes.Length - 2];
+        return shapes[^2];
     }
 
     static void Main()
@@ -27,7 +27,7 @@ internal class ShapesTask
         ];
 
         // Проверка сортировки по площади
-        IShape maxAreaShape = GetMaxArea(shapes);
+        IShape maxAreaShape = GetMaxAreaShape(shapes);
 
         Console.WriteLine($"Данные фигуры: {maxAreaShape.ToString()}");
         Console.WriteLine($"Площадь = {maxAreaShape.GetArea()}");
@@ -38,12 +38,18 @@ internal class ShapesTask
         Console.WriteLine();
 
         // Проверка сортировки по периметру
-        IShape preMaxPerimeterShape = GetPreMaxPerimeter(shapes);
+        IShape preMaxPerimeterShape = GetPreMaxPerimeterShape(shapes);
 
         Console.WriteLine($"Данные фигуры: {preMaxPerimeterShape.ToString()}");
         Console.WriteLine($"Площадь = {preMaxPerimeterShape.GetArea()}");
         Console.WriteLine($"Периметр = {preMaxPerimeterShape.GetPerimeter()}");
         Console.WriteLine($"Ширина = {preMaxPerimeterShape.GetWidth()}");
         Console.WriteLine($"Высота = {preMaxPerimeterShape.GetHeight()}");
+
+        Triangle rec1 = new Triangle(10, 13, 55, 65, 1, 4);
+        Triangle rec2 = new Triangle(10, 12, 55, 65, 1, 4);
+
+        Console.WriteLine(rec1.GetHashCode());
+        Console.WriteLine(rec2.GetHashCode());
     }
 }

@@ -4,14 +4,14 @@ internal class Square : IShape
 {
     public double Length { get; set; }
 
-    public Square(double lenght)
+    public Square(double length)
     {
-        Length = lenght;
+        Length = length;
     }
 
     public override string ToString()
     {
-        return ($"Сторона квадрата = {Length}");
+        return $"Сторона квадрата = {Length}";
     }
 
     public override bool Equals(object? obj)
@@ -33,10 +33,10 @@ internal class Square : IShape
 
     public override int GetHashCode()
     {
-        int prime = 19;
+        const int Prime = 19;
         int hash = 1;
 
-        hash = prime * hash + Length.GetHashCode();
+        hash = Prime * hash + Length.GetHashCode();
 
         return hash;
     }

@@ -11,7 +11,7 @@ internal class Circle : IShape
 
     public override string ToString()
     {
-        return ($"Радиус окружности = {Radius}");
+        return $"Радиус окружности = {Radius}";
     }
 
     public override bool Equals(object? obj)
@@ -33,10 +33,10 @@ internal class Circle : IShape
 
     public override int GetHashCode()
     {
-        int prime = 23;
+        const int Prime = 23;
         int hash = 1;
 
-        hash = prime * hash + Radius.GetHashCode();
+        hash = Prime * hash + Radius.GetHashCode();
 
         return hash;
     }
@@ -53,7 +53,7 @@ internal class Circle : IShape
 
     public double GetArea()
     {
-        return Math.PI * Math.Pow(Radius, 2);
+        return Math.PI * Radius * Radius;
     }
 
     public double GetPerimeter()

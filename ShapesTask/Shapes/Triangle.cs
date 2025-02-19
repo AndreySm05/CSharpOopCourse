@@ -23,7 +23,7 @@ internal class Triangle : IShape
 
     public override string ToString()
     {
-        return ($"Координаты сторон треугольника ({X1},{Y1}), ({X2},{Y2}), ({X3},{Y3})");
+        return $"Координаты сторон треугольника ({X1}, {Y1}), ({X2}, {Y2}), ({X3}, {Y3})";
     }
 
     public override bool Equals(object? obj)
@@ -47,26 +47,27 @@ internal class Triangle : IShape
 
     public override int GetHashCode()
     {
-        int prime = 17;
+        const int Prime = 17;
         int hash = 1;
 
-        hash = prime * hash + X1.GetHashCode();
-        hash = prime * hash + Y1.GetHashCode();
-        hash = prime * hash + X2.GetHashCode();
-        hash = prime * hash + Y2.GetHashCode();
-        hash = prime * hash + X3.GetHashCode();
-        hash = prime * hash + Y3.GetHashCode();
+        hash = Prime * hash + X1.GetHashCode();
+        hash = Prime * hash + Y1.GetHashCode();
+        hash = Prime * hash + X2.GetHashCode();
+        hash = Prime * hash + Y2.GetHashCode();
+        hash = Prime * hash + X3.GetHashCode();
+        hash = Prime * hash + Y3.GetHashCode();
 
         return hash;
     }
 
-    public double[] GetSides()
+    private double GetSideLength(double x1, double x2, double y1, double y2)
     {
-        double side1Length = Math.Sqrt(Math.Pow(X2 - X1, 2) + Math.Pow(Y2 - Y1, 2));
-        double side2Length = Math.Sqrt(Math.Pow(X3 - X2, 2) + Math.Pow(Y3 - Y2, 2));
-        double side3Length = Math.Sqrt(Math.Pow(X3 - X1, 2) + Math.Pow(Y3 - Y1, 2));
+        return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+    }
 
-        return [side1Length, side2Length, side3Length];
+    private double[] GetSides()
+    {
+        return [GetSideLength(X1, X2, Y1, Y2), GetSideLength(X2, X3, Y2, Y3), GetSideLength(X1, X3, Y1, Y3)];
     }
 
     public double GetWidth()
@@ -81,15 +82,17 @@ internal class Triangle : IShape
 
     public double GetPerimeter()
     {
-        return GetSides()[0] + GetSides()[1] + GetSides()[2];
+        double[] sides = GetSides();
+
+        return sides[0] + sides[1] + sides[2];
     }
 
     public double GetArea()
     {
         double semiPerimeter = GetPerimeter() / 2;
 
-        double area = Math.Sqrt(semiPerimeter * (semiPerimeter - GetSides()[0]) * (semiPerimeter - GetSides()[1]) * (semiPerimeter - GetSides()[2]));
+        double[] sides = GetSides();
 
-        return area;
+        return Math.Sqrt(semiPerimeter * (semiPerimeter - sides[0]) * (semiPerimeter - sides[1]) * (semiPerimeter - sides[2]));
     }
 }
