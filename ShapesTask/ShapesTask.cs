@@ -4,14 +4,14 @@ internal class ShapesTask
 {
     public static IShape GetMaxAreaShape(IShape[] shapes)
     {
-        Array.Sort(shapes, new ShapeAreaComparer());
+        Array.Sort(shapes, new ShapesAreaComparer());
 
         return shapes[^1];
     }
 
     public static IShape GetPreMaxPerimeterShape(IShape[] shapes)
     {
-        Array.Sort(shapes, new ShapePerimeterComparer());
+        Array.Sort(shapes, new ShapesPerimeterComparer());
 
         return shapes[^2];
     }

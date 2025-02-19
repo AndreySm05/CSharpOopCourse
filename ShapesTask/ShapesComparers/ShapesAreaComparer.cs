@@ -1,6 +1,6 @@
 ﻿namespace ShapesTask;
 
-internal class ShapeAreaComparer : IComparer<IShape>
+internal class ShapesAreaComparer : IComparer<IShape>
 {
     public int Compare(IShape? shape1, IShape? shape2)
     {
